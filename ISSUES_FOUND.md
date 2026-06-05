@@ -61,3 +61,9 @@
 
 - Docker build 是否能完整通过（上次卡在 SourcesSidebarProvider 修复后的重新 build）
 - 修复后的代码能否正常启动并通过基本功能测试
+
+### Bug 7: Docker Node 版本不兼容导致构建失败（Critical）
+- **现象:** Docker build 在 server yarn install 阶段报错 "engine node incompatible"
+- **根因:** @aws-sdk/client-bedrock-runtime@3.1062.0 要求 Node >= 20，但 Dockerfile 使用 Node 18（已于 2025年4月 EOL）
+- **修复:** Dockerfile 中 3 处 Node 18 → Node 20（arm64/amd64 nodesource 源 + frontend-build 镜像）
+- **涉及文件:** docker/Dockerfile
