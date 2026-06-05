@@ -12,6 +12,7 @@ import ChatSidebar, { useSourcesSidebar } from "../ChatSidebar";
 
 // Re-export for backward compat with existing imports
 export { useSourcesSidebar } from "../ChatSidebar";
+export { ChatSidebarProvider as SourcesSidebarProvider } from "../ChatSidebar";
 
 export default function SourcesSidebar() {
   const { sources, sidebarOpen, closeSidebar } = useSourcesSidebar();
