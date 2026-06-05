@@ -23,15 +23,49 @@
 
 ## 快速开始
 
+### 环境要求
+
+- Node.js >= 18.12（推荐使用 nvm 切换）
+- yarn
+- Docker（可选，用于容器化部署）
+
+### Docker 部署
+
+```bash
+git clone https://github.com/heihei999/anythingllm-fix.git
+cd anythingllm-fix/docker
+
+# 复制环境配置
+cp .env.example .env
+# 按需编辑 .env（默认配置即可启动）
+
+# 启动
+docker compose up -d
+# 访问 http://localhost:3001
+```
+
+### 本地开发
+
 ```bash
 git clone https://github.com/heihei999/anythingllm-fix.git
 cd anythingllm-fix
 
-# Docker 方式
-docker compose up -d
+# 一键安装依赖 + 初始化环境
+yarn setup
 
-# 本地开发
-yarn dev
+# 同时启动 server、frontend、collector
+yarn dev:all
+# 或者分三个终端分别运行：
+#   yarn dev:server    (端口 3001)
+#   yarn dev:frontend  (端口 3000)
+#   yarn dev:collector
+```
+
+### 生产构建
+
+```bash
+yarn prod:frontend   # 构建前端到 frontend/dist/
+yarn prod:server     # 启动生产服务
 ```
 
 ## 与上游同步
