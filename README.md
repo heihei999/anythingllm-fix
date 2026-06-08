@@ -2,70 +2,51 @@
 
 社区维护的 AnythingLLM Bug 修复分支。基于 [Mintplex-Labs/anything-llm](https://github.com/Mintplex-Labs/anything-llm) 官方仓库，专注修复影响日常使用的严重缺陷。不添加额外功能，保持与上游的高度同步。
 
-## 定位
+## 修复了什么
 
-- 仅修复 Bug，不引入新功能或重构
-- 定期与上游 master 同步
-- 每次修复附带详细变更记录
-- 所有改动经过代码审查
+1. **切换对话后流式回复丢失** — 写着写着突然断了（[#5195](https://github.com/Mintplex-Labs/anything-llm/issues/5195)，上游 5 个月没修）
+2. **Agent 会话崩溃** — 使用 Agent 时软件闪退（[#5676](https://github.com/Mintplex-Labs/anything-llm/issues/5676)）
+3. **推理模型回复异常** — 使用 Cerebras 等推理模型时 Token 丢失（[#3553](https://github.com/Mintplex-Labs/anything-llm/issues/3553)）
+4. **聊天上下文丢失** — 某些情况下对话记忆失效
+5. **使用统计不准** — 推理耗时不显示
 
-## 当前修复内容
+## 桌面版用户：一键修复（推荐）
 
-详见 [CHANGES.md](./CHANGES.md)
+**三步搞定，不需要懂技术：**
 
-主要修复：
+1. **下载** — 从 [Releases](https://github.com/heihei999/anythingllm-fix/releases) 下载最新补丁包，解压
+2. **双击** `patcher.bat`
+3. **完成** — 重新打开 AnythingLLM 即可
 
-1. 线程切换后流式回复丢失（[#5195](https://github.com/Mintplex-Labs/anything-llm/issues/5195)，上游 3 月提出至今未修）
-2. Agent Session 空指针崩溃
-3. 推理 Token 在代码重构中被删除（[#5676](https://github.com/Mintplex-Labs/anything-llm/issues/5676)）
-4. chatPrompt 参数缺失导致记忆检索失效
-5. 用量指标 duration 丢失
+**前提条件：** 电脑上需要安装 [Node.js](https://nodejs.org/)（下载 LTS 版本，安装后重启一次电脑就行）。没装的话双击补丁会提示你去下载。
 
-## 快速开始
+**不会影响你的数据。** 聊天记录、文档、设置都保存在别的目录，补丁只改程序文件。
 
-### 环境要求
+**出了问题可以恢复。** 补丁会自动备份原文件，想恢复原版只要把 `app.asar.bak` 改名为 `app.asar`。
 
-- Node.js >= 18.12（推荐使用 nvm 切换）
-- yarn
-- Docker（可选，用于容器化部署）
+详见 [desktop-patcher/README.md](./desktop-patcher/README.md)。
 
-### Docker 部署
+## Docker 部署
 
 ```bash
 git clone https://github.com/heihei999/anythingllm-fix.git
 cd anythingllm-fix/docker
 
-# 复制环境配置
 cp .env.example .env
 # 按需编辑 .env（默认配置即可启动）
 
-# 启动
 docker compose up -d
 # 访问 http://localhost:3001
 ```
 
-### 本地开发
+## 本地开发
 
 ```bash
 git clone https://github.com/heihei999/anythingllm-fix.git
 cd anythingllm-fix
 
-# 一键安装依赖 + 初始化环境
 yarn setup
-
-# 同时启动 server、frontend、collector
 yarn dev:all
-# 或者分三个终端分别运行：
-#   yarn dev:server    (端口 3001)
-#   yarn dev:frontend  (端口 3000)
-#   yarn dev:collector
-```
-
-### 生产构建
-
-```bash
-yarn prod:frontend   # 构建前端到 frontend/dist/
-yarn prod:server     # 启动生产服务
 ```
 
 ## 与上游同步
