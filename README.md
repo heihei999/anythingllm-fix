@@ -30,7 +30,7 @@
 
 ```bash
 git clone https://github.com/heihei999/anythingllm-reliable.git
-cd anythingllm-fix/docker
+cd anythingllm-reliable/docker
 
 cp .env.example .env
 # 按需编辑 .env（默认配置即可启动）
@@ -43,7 +43,7 @@ docker compose up -d
 
 ```bash
 git clone https://github.com/heihei999/anythingllm-reliable.git
-cd anythingllm-fix
+cd anythingllm-reliable
 
 yarn setup
 yarn dev:all

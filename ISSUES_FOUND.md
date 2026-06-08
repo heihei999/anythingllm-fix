@@ -1,4 +1,4 @@
-# anythingllm-fix 仓库 — 问题汇总
+# anythingllm-reliable 仓库 — 问题汇总
 
 ## 一、上游代码 Bug（已修复）
 
