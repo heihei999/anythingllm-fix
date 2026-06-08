@@ -4,7 +4,7 @@
 
 ## 三步搞定
 
-1. **下载** — 从 [Releases](https://github.com/heihei999/anythingllm-fix/releases) 下载补丁包，解压到任意文件夹
+1. **下载** — 从 [Releases](https://github.com/heihei999/anythingllm-reliable/releases) 下载补丁包，解压到任意文件夹
 2. **双击** `patcher.bat`
 3. **完成** — 重新打开 AnythingLLM
 

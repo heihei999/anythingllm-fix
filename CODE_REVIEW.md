@@ -1,7 +1,7 @@
 # Code Review Report — AnythingLLM Fix
 
 **审查日期:** 2026-06-05  
-**仓库:** heihei999/anythingllm-fix  
+**仓库:** heihei999/anythingllm-reliable  
 **基于:** Mintplex-Labs/anything-llm 上游代码  
 **审查范围:** 6 个 Bug 修复 + 仓库配置修复，共涉及 9 个源文件 + 3 个文档文件
 

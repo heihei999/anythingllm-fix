@@ -14,7 +14,7 @@
 
 **三步搞定，不需要懂技术：**
 
-1. **下载** — 从 [Releases](https://github.com/heihei999/anythingllm-fix/releases) 下载最新补丁包，解压
+1. **下载** — 从 [Releases](https://github.com/heihei999/anythingllm-reliable/releases) 下载最新补丁包，解压
 2. **双击** `patcher.bat`
 3. **完成** — 重新打开 AnythingLLM 即可
 
@@ -29,7 +29,7 @@
 ## Docker 部署
 
 ```bash
-git clone https://github.com/heihei999/anythingllm-fix.git
+git clone https://github.com/heihei999/anythingllm-reliable.git
 cd anythingllm-fix/docker
 
 cp .env.example .env
@@ -42,7 +42,7 @@ docker compose up -d
 ## 本地开发
 
 ```bash
-git clone https://github.com/heihei999/anythingllm-fix.git
+git clone https://github.com/heihei999/anythingllm-reliable.git
 cd anythingllm-fix
 
 yarn setup
